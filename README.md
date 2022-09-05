@@ -13,3 +13,35 @@ Modeling, textures and UV are created in Blender.
 
 * 2.1
 A brainstorm about this question(In C#):
+````
+float[] CompareFloat(float[] in)
+{
+	float[] out = new float[in.length];
+  
+	for(int i=0;i<in.length;i++)
+	{
+		out[i] = in[i];
+	}
+  
+	bool isCorrect;
+	do
+	{
+		isCorrect=true;
+		for(int i=0;i<in.length;i++)
+		{
+			if(i<in.length - 1 && out[i] > out[i+1])
+			{
+				float f = out[i];
+				out[i] = out[i+1];
+				out[i+1] = f;
+				
+				isCorrect = false;
+				break;
+			}
+		}
+	}
+	while(!isCorrect)
+  
+	return out;
+}
+````
